@@ -11,13 +11,6 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })      
 
-app.post('/myparam', (req, res) => {
-  var id = req.param('id')
-  var name = req.param('name')
-  console.log('ID:  '+ id + '  NAME:  ' + name)
-  res.send('ID:  '+ id + '  NAME:  ' + name)
-});
-
 app.post('/myheaders', (req, res) => {
   var id = req.headers.id
   var name = req.headers.name
