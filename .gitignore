@@ -88,7 +88,7 @@ dist
 # https://nextjs.org/blog/next-9-1#public-directory-support
 # public
 
-# vuepress build output nefksdñlkdmsdñlksmdñlksdl111111
+# vuepress build output Guerrero
 .vuepress/dist
 
 # Serverless directories
