@@ -18,9 +18,22 @@ app.post('/myheaders', (req, res) => {
   res.send('ID:  '+ id + '  NAME:  ' + name)
 });
 
-app.post('/mybody', (req, res) => {
-  console.log(req.body)
-  res.status(200).send(req.body)
+app.get('/first_service', (req, res) => {
+  res.status(200).json({"list" : [{ username: 'Flavio'}, 
+                                  {username : 'Diego', age: 32}, 
+                                  {username : 'Jason', age : 12 }],
+                      "numberList": 3,
+                      "Hola" : "Mundo"
+  })
+})
+
+app.get('/second_service', (req, res) => {
+    res.json({"pilotos" : [{nombre: "Loius Hamilton"}, {nombre: "Juan Pablo Montoya"}, {nombre: "Yesion"}]})
+})    
+
+app.get('/third_service', (req, res) => {
+    //console.log(req.body)
+    res.status(200).send('Tercer servicio')
 })
 
 app.listen(port, () => {
