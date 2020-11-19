@@ -1,11 +1,15 @@
 const express = require('express')
 const bodyParser = require('body-parser');
 const app = express()
+const cors = require('cors')
 const port = 3000
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 app.use(bodyParser.text())
+app.use(cors())
+
+var dataClient = "";
 
 app.get('/', (req, res) => {
   res.send('Hello World!')
@@ -17,6 +21,17 @@ app.post('/myheaders', (req, res) => {
   console.log('ID:  '+ id + '  NAME:  ' + name)
   res.send('ID:  '+ id + '  NAME:  ' + name)
 });
+
+app.post('/data_client', (req, res) => {
+  console.log(req.body)
+  dataClient = req.body
+  //console.log('Nombre:  '+ name + '  Apellidos:  ' + surname)
+});
+
+app.get('/client_info', (req, res) => {
+  console.log("Is dataClient " + dataClient)
+  res.send(dataClient)
+})   
 
 app.get('/first_service', (req, res) => {
   res.status(200).json({"list" : [{ username: 'Flavio'}, 
@@ -34,17 +49,17 @@ app.get('/second_service', (req, res) => {
 app.get('/third_service', (req, res) => {
     res.json([
         {
-          "name": "Diego Buitrago",
+          "name": "Diego",
           "age": 25,
           "driving_license": true
         },
         {
-          "name": "Diego Guerrero",
+          "name": "Guerrero",
           "age": 90,
           "driving_license": true
         },
         {
-           "name": "Laura Salinas",
+           "name": "Salinas",
            "age": 22,
            "driving_license": false
         }
