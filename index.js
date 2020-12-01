@@ -12,7 +12,7 @@ app.use(cors())
 var dataClient = "";
 
 app.get('/', (req, res) => {
-  res.send('Hello World!')
+  res.send('ok')
 })      
 
 app.post('/myheaders', (req, res) => {
