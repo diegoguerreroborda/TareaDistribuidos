@@ -12,7 +12,7 @@ app.use(cors())
 var dataClient = "";
 
 app.get('/', (req, res) => {
-  res.send('ok Server')
+  res.send('ok')
 })      
 
 app.post('/myheaders', (req, res) => {
@@ -40,30 +40,6 @@ app.get('/first_service', (req, res) => {
                       "numberList": 3,
                       "Hola" : "Mundo"
   })
-})
-
-app.get('/second_service', (req, res) => {
-    res.json({"pilotos" : [{nombre: "Loius Hamilton"}, {nombre: "Juan Pablo Montoya"}, {nombre: "Yesion"}]})
-})    
-
-app.get('/third_service', (req, res) => {
-    res.json([
-        {
-          "name": "Diego",
-          "age": 25,
-          "driving_license": true
-        },
-        {
-          "name": "Guerrero",
-          "age": 90,
-          "driving_license": true
-        },
-        {
-           "name": "Salinas",
-           "age": 22,
-           "driving_license": false
-        }
-      ])
 })
 
 app.listen(port, () => {
