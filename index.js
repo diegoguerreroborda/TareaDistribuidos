@@ -12,7 +12,7 @@ app.use(cors())
 var dataClient = "";
 
 app.get('/', (req, res) => {
-  res.send('ok')
+  res.send('ok Server')
 })      
 
 app.post('/myheaders', (req, res) => {
@@ -31,7 +31,7 @@ app.post('/data_client', (req, res) => {
 app.get('/client_info', (req, res) => {
   console.log("Is dataClient " + dataClient)
   res.send(dataClient)
-})   
+})
 
 app.get('/first_service', (req, res) => {
   res.status(200).json({"list" : [{ username: 'Flavio'}, 
