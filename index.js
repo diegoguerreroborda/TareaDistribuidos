@@ -13,7 +13,16 @@ var dataClient = "";
 
 app.get('/', (req, res) => {
   res.send('ok')
-})      
+})    
+
+app.get('/info_client', (req, res) => {
+  res.send(dataClient)
+}) 
+
+app.post('/data_client', (req, res) => {
+  console.log(req.body)
+  dataClient = req.body
+});
 
 app.post('/myheaders', (req, res) => {
   var id = req.headers.id
@@ -21,17 +30,6 @@ app.post('/myheaders', (req, res) => {
   console.log('ID:  '+ id + '  NAME:  ' + name)
   res.send('ID:  '+ id + '  NAME:  ' + name)
 });
-
-app.post('/data_client', (req, res) => {
-  console.log(req.body)
-  dataClient = req.body
-  //console.log('Nombre:  '+ name + '  Apellidos:  ' + surname)
-});
-
-app.get('/client_info', (req, res) => {
-  console.log("Is dataClient " + dataClient)
-  res.send(dataClient)
-})
 
 app.get('/first_service', (req, res) => {
   res.status(200).json({"list" : [{ username: 'Flavio'}, 
