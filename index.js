@@ -9,22 +9,22 @@ app.use(bodyParser.json())
 app.use(bodyParser.text())
 app.use(cors())
 
-var dataClient = "";
+var pathImg = "";
 
 app.get('/', (req, res) => {
   res.send('ok')
 })  
 
 app.post('/data_client', (req, res) => {
-  console.log(`Entrante es ${req.body}.`)
-  dataClient = req.body;
+  console.log('Entrante es: ', req.body)
+  pathImg = req.body;
   res.status(200);
 });
 
 app.get('/info_client', (req, res) => {
-  console.log(`Dataclient es ${dataClient.img}.`);
-  res.send(dataClient);
-}) 
+  console.log(`PathImg es ${pathImg.img}.`);
+  res.send(pathImg);
+})
 
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`)
