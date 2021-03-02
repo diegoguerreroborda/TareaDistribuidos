@@ -4,7 +4,7 @@ const app = express()
 //const cors = require('cors')
 const Fs = require('fs')
 var Jimp = require('jimp');
-const port = process.argv[2];
+const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
@@ -66,7 +66,7 @@ function edit_image(file) {
 
 app.get('/', (req, res) => {
   res.send('ok')
-})  
+})
 
 app.post('/data_img', (req, res) => {
   //console.log('Entrante es: ', req.body.img)
